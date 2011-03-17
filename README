@@ -1,0 +1,45 @@
+Results: 
+microbenchmark shows, that  RESTEasy is in ~1.5 times faster then CXF.
+
+CXF
+
+$ siege -c 3 -b -i -t 1m http://localhost:8082/cxf/bench > done.log
+** SIEGE 2.69
+** Preparing 3 concurrent users for battle.
+The server is now under siege...
+
+Lifting the server siege...      done.
+Transactions:                 254294 hits
+Availability:                 100.00 %
+Elapsed time:                  59.42 secs
+Data transferred:              73.72 MB
+Response time:                  0.00 secs
+Transaction rate:            4279.60 trans/sec
+Throughput:                     1.24 MB/sec
+Concurrency:                    2.89
+Successful transactions:      254294
+Failed transactions:               0
+Longest transaction:            0.03
+Shortest transaction:           0.00
+
+
+RESTEasy
+
+siege -c 3 -b -i -t 1m http://localhost:8082/resteasy/bench > done.log
+** SIEGE 2.69
+** Preparing 3 concurrent users for battle.
+The server is now under siege...
+
+Lifting the server siege...      done.
+Transactions:                 362279 hits
+Availability:                 100.00 %
+Elapsed time:                  59.54 secs
+Data transferred:             105.03 MB
+Response time:                  0.00 secs
+Transaction rate:            6084.63 trans/sec
+Throughput:                     1.76 MB/sec
+Concurrency:                    2.84
+Successful transactions:      362279
+Failed transactions:               0
+Longest transaction:            0.03
+Shortest transaction:           0.00
